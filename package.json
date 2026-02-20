@@ -4,7 +4,6 @@
   "description": "",
   "license": "ISC",
   "author": "Eliza",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
@@ -15,8 +14,8 @@
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
     "babel-loader": "^10.0.0",
-    "webpack": "^5.105.2",
-    "webpack-cli": "^4.10.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.15.2"
   }
 }

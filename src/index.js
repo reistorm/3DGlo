@@ -1,9 +1,6 @@
-// import one from './modules/one'
-// import two from './modules/two'
-const one = require('./modules/one')
-const two = require('./modules/two')
+import timer from './modules/timer.js'
 
-one()
-two()
+timer('22 march 2026');
+
 
 
