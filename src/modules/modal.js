@@ -4,7 +4,6 @@ const modal = () => {
     const closeBtn = modal.querySelector('.popup-close')
 
     const isMobile = window.innerWidth < 768
-    console.log(isMobile);
 
     const animateOpen = () => {
         if (isMobile) {
