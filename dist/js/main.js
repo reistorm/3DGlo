@@ -16,27 +16,27 @@
   \******************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_one_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/one.js */ \"./modules/one.js\");\n/* harmony import */ var _modules_two_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/two.js */ \"./modules/two.js\");\n\n\n// const one = require('./modules/one')\n// const two = require('./modules/two')\n\n(0,_modules_one_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n(0,_modules_two_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_timer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/timer.js */ \"./modules/timer.js\");\n/* harmony import */ var _modules_menu_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu.js */ \"./modules/menu.js\");\n\n\n(0,_modules_timer_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('22 march 2026');\n(0,_modules_menu_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack:///./index.js?\n}");
 
 /***/ },
 
-/***/ "./modules/one.js"
-/*!************************!*\
-  !*** ./modules/one.js ***!
-  \************************/
+/***/ "./modules/menu.js"
+/*!*************************!*\
+  !*** ./modules/menu.js ***!
+  \*************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar one = function one() {\n  var timerHours = document.getElementById('timer-hours');\n  var timerMinutes = document.getElementById('timer-minutes');\n  var timerSeconds = document.getElementById('timer-seconds');\n  var deadline = '22 march 2026';\n  var dateStop = new Date(deadline).getTime();\n  var dateNow = new Date().getTime();\n  var timeRemaining = dateStop - dateNow / 1000;\n  console.log(timeRemaining);\n};\n// module.exports = one()\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (one);\n\n//# sourceURL=webpack:///./modules/one.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar menu = function menu() {\n  console.log(\"menu\");\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (menu);\n\n//# sourceURL=webpack:///./modules/menu.js?\n}");
 
 /***/ },
 
-/***/ "./modules/two.js"
-/*!************************!*\
-  !*** ./modules/two.js ***!
-  \************************/
+/***/ "./modules/timer.js"
+/*!**************************!*\
+  !*** ./modules/timer.js ***!
+  \**************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar two = function two() {\n  var two = 'two';\n  console.log(two);\n  console.log('проверка');\n};\n\n// module.exports = two()\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (two);\n\n//# sourceURL=webpack:///./modules/two.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar timer = function timer(deadline) {\n  var timerDays = document.getElementById('timer-days');\n  var timerHours = document.getElementById('timer-hours');\n  var timerMinutes = document.getElementById('timer-minutes');\n  var timerSeconds = document.getElementById('timer-seconds');\n  var interval;\n  var getTimeRemaining = function getTimeRemaining() {\n    var dateStop = new Date(deadline).getTime();\n    var dateNow = new Date().getTime();\n    var timeRemaining = (dateStop - dateNow) / 1000;\n    var days = Math.floor(timeRemaining / 60 / 60 / 24);\n    var fhours = Math.floor(timeRemaining / 60 / 60 % 24);\n    var fminutes = Math.floor(timeRemaining / 60 % 60);\n    var fseconds = Math.floor(timeRemaining % 60);\n    var hours = fhours < 10 ? '0' + fhours : fhours;\n    var minutes = fminutes < 10 ? '0' + fminutes : fminutes;\n    var seconds = fseconds < 10 ? '0' + fseconds : fseconds;\n    return {\n      timeRemaining: timeRemaining,\n      days: days,\n      hours: hours,\n      minutes: minutes,\n      seconds: seconds\n    };\n  };\n  var updateClock = function updateClock() {\n    var getTime = getTimeRemaining();\n    timerDays.textContent = getTime.days;\n    timerHours.textContent = getTime.hours;\n    timerMinutes.textContent = getTime.minutes;\n    timerSeconds.textContent = getTime.seconds;\n    if (getTime.timeRemaining <= 0) {\n      clearInterval(interval);\n      timerDays.textContent = '00';\n      timerHours.textContent = '00';\n      timerMinutes.textContent = '00';\n      timerSeconds.textContent = '00';\n    }\n  };\n  updateClock();\n  interval = setInterval(updateClock, 1000);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (timer);\n\n//# sourceURL=webpack:///./modules/timer.js?\n}");
 
 /***/ }
 

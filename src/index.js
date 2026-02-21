@@ -1,6 +1,10 @@
 import timer from './modules/timer.js'
+import menu from './modules/menu.js'
+import modal from './modules/modal.js';
+
 
 timer('22 march 2026');
-
+menu()
+modal()
 
 
