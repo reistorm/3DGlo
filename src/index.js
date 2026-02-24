@@ -4,6 +4,7 @@ import modal from './modules/modal.js';
 import scroll from './modules/scroll.js'
 import validationCalc from './modules/validationCalc.js';
 import validationForm from './modules/validationForm.js';
+import tabs from './modules/tabs.js';
 
 
 
@@ -13,6 +14,7 @@ modal()
 scroll()
 validationCalc()
 validationForm()
+tabs()
 
 
 
