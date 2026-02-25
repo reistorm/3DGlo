@@ -1,21 +1,41 @@
 const menu = () => {
     const menuBtn = document.querySelector('.menu')
     const menu = document.querySelector('menu')
-    const closeBtn = menu.querySelector('.close-btn')
     const menuItems = menu.querySelectorAll('ul>li>a')
 
-    const handleMenu = () => {
-        // if (!menu.style.transform) {
-        //     menu.style.transform = `translateX(0)`
-        // } else {
-        //     menu.style.transform = ``
-        // }
+    const toggleMenu = () => {
         menu.classList.toggle('active-menu') // в css уже есть реализованный класс active-menu
     }
 
-    menuBtn.addEventListener('click', handleMenu)
-    closeBtn.addEventListener('click', handleMenu)
-    menuItems.forEach(item => item.addEventListener('click', handleMenu))
+    const isTargetMenuItems = (target) => {
+        for (const ul of menuItems) {
+            if (ul.contains(target)) {
+                return true
+            }
+        }
+        return false
+    }
+
+    document.body.addEventListener('click', (e) => {
+        const target = e.target
+
+        if (menuBtn.contains(target)) {
+            toggleMenu()
+            e.preventDefault()
+            return
+        }
+
+        if (target.classList.contains('close-btn')) {
+            toggleMenu()
+            e.preventDefault()
+            return
+        }
+
+        if (target.tagName === 'A' && isTargetMenuItems(target) &&
+            !target.classList.contains('close-btn')) {
+            toggleMenu()
+        }
+    })
 }
 
 export default menu
