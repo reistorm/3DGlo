@@ -1,11 +1,27 @@
 const slider = () => {
     const sliderBlock = document.querySelector('.portfolio-content')
     const slides = document.querySelectorAll('.portfolio-item')
-    const dots = document.querySelectorAll('.dot')
+    const portfolioDots = document.querySelector('.portfolio-dots')
 
     const timeInterval = 2000
     let currentSlide = 0
     let interval
+
+    const createDots = () => {
+        portfolioDots.innerHTML = ''
+        for (let i = 0; i < slides.length; i++) {
+            const dot = document.createElement('li')
+            dot.classList.add('dot')
+            if (i === 0) {
+                dot.classList.add('dot-active')
+            }
+            portfolioDots.appendChild(dot)
+        }
+    }
+
+    let dots = []
+    createDots()
+    dots = document.querySelectorAll('.dot')
 
     const prevSlide = (elems, index, strClass) => {
         elems[index].classList.remove(strClass)
@@ -82,6 +98,7 @@ const slider = () => {
     }, true)
 
     startSlide(timeInterval)
+    dots = document.querySelectorAll('.dot')
 }
 
 export default slider
