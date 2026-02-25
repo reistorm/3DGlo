@@ -10,6 +10,10 @@
     "watch": "webpack --watch --mode=development",
     "start": "webpack serve --mode=development --open"
   },
+  "dependencies": {
+    "seamless-scroll-polyfill": "^2.3.4",
+    "swiper": "^12.1.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
@@ -17,8 +21,5 @@
     "webpack": "^5.58.1",
     "webpack-cli": "^4.9.0",
     "webpack-dev-server": "^4.15.2"
-  },
-  "dependencies": {
-    "seamless-scroll-polyfill": "^2.3.4"
   }
 }
