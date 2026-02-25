@@ -7,7 +7,6 @@ const calc = (price = 100) => {
     const total = document.getElementById('total')
 
     const countCalc = () => {
-        // находим value элемента calcType
         const calcTypeValue = +calcType.options[calcType.selectedIndex].value
         const calcSquareValue = calcSquare.value
 
