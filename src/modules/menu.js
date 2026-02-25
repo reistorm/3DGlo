@@ -5,11 +5,21 @@ const menu = () => {
 
     const toggleMenu = () => {
         menu.classList.toggle('active-menu') // в css уже есть реализованный класс active-menu
+
+        if (menu.classList.contains('active-menu')) {
+            const handler = (e) => {
+                if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+                    menu.classList.remove('active-menu')
+                    document.removeEventListener('click', handler)
+                }
+            }
+            document.addEventListener('click', handler)
+        }
     }
 
     const isTargetMenuItems = (target) => {
-        for (const ul of menuItems) {
-            if (ul.contains(target)) {
+        for (const item of menuItems) {
+            if (item === target) {
                 return true
             }
         }
