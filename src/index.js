@@ -7,6 +7,7 @@ import validationForm from './modules/validationForm.js';
 import tabs from './modules/tabs.js';
 import slider from './modules/slider.js';
 import sliderCarousel from './modules/sliderCarousel.js';
+import calc from './modules/calc.js';
 
 
 
@@ -19,6 +20,7 @@ validationForm()
 tabs()
 slider()
 sliderCarousel()
+calc(100)
 
 
 
