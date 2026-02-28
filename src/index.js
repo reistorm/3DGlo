@@ -11,7 +11,6 @@ import calc from './modules/calc.js';
 import sendForm from './modules/sendForm.js';
 
 
-
 timer('22 march 2026');
 menu()
 modal()
@@ -22,13 +21,25 @@ tabs()
 slider()
 sliderCarousel()
 calc(100)
-sendForm({ 
-    formId: 'form1', 
-    someElem: [ {
+sendForm({
+    formId: 'form1',
+    someElem: [{
         type: 'block',
         id: 'total'
-    }] 
+    }]
 })
 
+sendForm({
+    formId: 'form3',
+    someElem: [{
+        type: 'block',
+        id: 'total'
+    }]
+})
+
+sendForm({
+    formId: 'form2',
+    someElem: []
+})
 
 

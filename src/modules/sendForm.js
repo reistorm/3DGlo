@@ -3,12 +3,53 @@ const sendForm = ({ formId, someElem = [] }) => {
     const statusBlock = document.createElement('div')
     const loadText = 'Загрузка'
     const errorText = 'Ошибка'
-    const successText = 'Данные отправлены'
+    const successText = 'Спасибо! Наш менеджер свяжется с Вами!'
 
     const validate = (list) => {
-        let success = true
-        return success
-    }
+        let success = true;
+
+        list.forEach(input => {
+            input.style.border = ''
+            if (input.value.trim() === '') {
+                success = false
+                input.style.border = '2px solid red';
+            }
+
+            if (input.name === 'user_name') {
+                if (!/^[а-яё\s]+$/gi.test(input.value) && input.value !== '') {
+                    success = false;
+                    input.style.border = '2px solid red';
+                } else {
+                    input.style.border = '';
+                }
+            }
+
+            if (input.name === 'user_phone') {
+                if (!/^[\d\+\(\)\-\s]+$/g.test(input.value) && input.value !== '') {
+                    success = false;
+                    input.style.border = '2px solid red';
+                } else {
+                    input.style.border = '';
+                }
+            }
+
+            if (input.name === 'user_message') {
+                if (!/^[а-яё\d\s\.,!?;:\-]+$/gi.test(input.value) && input.value !== '') {
+                    success = false;
+                    input.style.border = '2px solid red';
+                } else {
+                    input.style.border = '';
+                }
+            }
+
+            if (input.hasAttribute('required') && input.value.trim() === '') {
+                success = false;
+                input.style.border = '2px solid red';
+            }
+        });
+
+        return success;
+    };
 
     const sendData = (data) => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -48,6 +89,9 @@ const sendForm = ({ formId, someElem = [] }) => {
                     formElements.forEach(input => {
                         input.value = ''
                     })
+                    setTimeout(() => {
+                        statusBlock.remove()
+                    }, 3000);
                 })
                 .catch(error => {
                     statusBlock.textContent = errorText
@@ -57,15 +101,15 @@ const sendForm = ({ formId, someElem = [] }) => {
         }
     }
     try {
-        if(!form) {
-            throw new Error('Форма не выбрана')
+        if (!form) {
+            throw new Error('Выбрана не форма!')
         }
         form.addEventListener('submit', (e) => {
             e.preventDefault()
 
             submitForm()
         })
-    } catch(error) {
+    } catch (error) {
         console.log(error.message);
     }
 }
