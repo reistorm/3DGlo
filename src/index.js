@@ -8,6 +8,7 @@ import tabs from './modules/tabs.js';
 import slider from './modules/slider.js';
 import sliderCarousel from './modules/sliderCarousel.js';
 import calc from './modules/calc.js';
+import sendForm from './modules/sendForm.js';
 
 
 
@@ -21,6 +22,13 @@ tabs()
 slider()
 sliderCarousel()
 calc(100)
+sendForm({ 
+    formId: 'form1', 
+    someElem: [ {
+        type: 'block',
+        id: 'total'
+    }] 
+})
 
 
 
